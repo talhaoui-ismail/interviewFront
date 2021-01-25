@@ -1,0 +1,99 @@
+<div class="row">
+    <div class="col">
+      <div class="card shadow">     
+        <div class="card-body">
+          <div class="row icon-examples">                       
+            <div class="card-body px-lg-5 py-lg-5">
+              <form #Form="ngForm" role="form" (ngSubmit)="SubmitForm(Form,$event)">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <div class="input-group input-group-alternative mb-3">
+                        <div class="input-group-prepend" >
+                          <span class="input-group-text" ><i class="ni ni-hat-3"></i></span>
+                        </div>
+                        <input required   class="form-control" [disabled]="Disabled" name="name" placeholder="name" [(ngModel)]="product.name" type="text">
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <div class="input-group input-group-alternative mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="ni ni-square-pin"></i></span>
+                        </div>
+                        <input required   class="form-control" [disabled]="Disabled" name="description" placeholder="description" [(ngModel)]="product.description"  type="text">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                 
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <div class="input-group input-group-alternative mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="ni ni-square-pin"></i></span>
+                        </div>
+                        <input required #member ngModel class="form-control" [disabled]="Disabled" name="price" placeholder="price"  [(ngModel)]="product.price" type="text">
+                      </div>
+                    </div>
+                  </div>
+                  <div  class="col-lg-6">
+                    <div class="form-group">
+                      <div class="input-group input-group-alternative mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="ni ni-square-pin"></i></span>
+                        </div>
+                        <input *ngIf="!Disabled" class="form-control" hidden="true" name="id"  [(ngModel)]="product.id" type="text">
+                        <input *ngIf="Disabled" class="form-control" [disabled]="Disabled" name="currency"  value="EUR" type="text">
+                        <select *ngIf="!Disabled" required id="CurrencyCode" ngModel  name="CurrencyCode" #member [disabled]="Disabled" [(ngModel)]="product.currency" class="form-control" >
+                          <option disabled selected >Currency</option>
+                          <option *ngFor="let Currency of Currencies" [value]="Currency.code"  >{{Currency.name}}</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div   class="col-lg-6">
+                    <div class="form-group">
+                      <div class="input-group input-group-alternative mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="ni ni-square-pin"></i></span>
+                        </div>
+                        <select  id="categoryId"  ngModel name="categoryId" #member [disabled]="Disabled" [(ngModel)]="product.categoryId" class="form-control" >
+                          <option disabled selected >Category</option>
+                          <option *ngFor="let category of categories"  [selected]="category.idCategory ==product.categoryId" [value]="category.idCategory"   >{{category.name}}</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="row">
+                <div class="col-sm-3">
+                  <button type="submit" *ngIf="!Disabled" id="sub"   class="btn btn-primary ">Submit</button>
+                </div>
+                <div class="col-sm-3">
+                  <button type="submit" *ngIf="Disabled" id="upd" class="btn btn-primary  ">Update </button>
+                </div>
+                 
+                <div class="col-sm-3">
+                  <button type="submit" *ngIf="Disabled" id="Del"  class="btn btn-primary ">Delete</button>
+                </div>
+                
+                <div class="col-sm-3">
+                  <button type="submit" *ngIf="Disabled" id="add"  class="btn btn-primary ">Add New </button>
+                </div>
+              </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

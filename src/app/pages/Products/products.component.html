@@ -1,0 +1,32 @@
+<div  class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <!-- Card stats -->
+      <div class="row">
+        <div class="col-xl-2 col-lg-6 mb-4 mb-xl-0">
+          <input class="form-control" #member placeholder="Reference" >
+        </div>
+        <div class="col-xl-2 col-lg-6 mb-4 mb-xl-0">
+          <input class="form-control" #member placeholder="Name" >
+        </div>
+        <div class="col-xl-2 col-lg-6 mb-4 mb-xl-0">
+          <select #type class="form-control"  (change)="GetListMembers(type.value)" >
+            <option disabled selected >Category</option>
+            <option *ngFor="let Categorie of categories" [value]="Categorie.idCategory">{{Categorie.name}}</option>
+          </select>
+        </div>
+        <div class="col-xl-2 col-lg-6 mb-4 mb-xl-0">
+              <div class="row">
+                <div class="col-sm-2">
+                  <button class="btn btn-primary" (click)="addNew()"> GO</button>
+                  </div>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid mt--7">
+<product-List [Products]="products" [Categories]="categories"></product-List>
+<AddProductForm [categories]="categories" (GetAllProducts)="GetAllProducts()" [product]="product" [Currencies]="currencies" > </AddProductForm>
+</div>

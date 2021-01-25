@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col">
+      <div class="card shadow">     
+        <div class="card-body">
+          <div class="row icon-examples">                       
+            <div class="card-body px-lg-5 py-lg-5">
+              <form #Form="ngForm" role="form" (ngSubmit)="SubmitForm(Form,$event)">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <div class="input-group input-group-alternative mb-3">
+                        <div class="input-group-prepend" >
+                          <span class="input-group-text" ><i class="ni ni-hat-3"></i></span>
+                        </div>
+                        <input required class="form-control" id="name" name="name" placeholder="Category Name"  [disabled]="disable" [(ngModel)]="category.name" type="text">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <div class="input-group input-group-alternative mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                        </div>
+                        <input required class="form-control" id="description" name="description" placeholder="description"  [disabled]="disable"  [(ngModel)]="category.description"   type="text">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+               
+                
+                <div class="row">
+                <div class="col-sm-3">
+                  <button type="submit" id="sub" [disabled]="disable" class="btn btn-primary ">Submit</button>
+                </div>
+                <div class="col-sm-3">
+                  <button type="submit"  id="upd" [disabled]="!disable" class="btn btn-primary  ">Update </button>
+                </div>
+                <div class="col-sm-3">
+                  <button type="submit"  id="del" [disabled]="!disable" class="btn btn-primary ">Delete</button>
+                </div>
+                <div class="col-sm-3">
+                  <button type="submit" id="add"  [disabled]="!disable" class="btn btn-primary ">Add New Category</button>
+                </div>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
