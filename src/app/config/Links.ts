@@ -1,7 +1,7 @@
 export class Links {
  
    // static BaseUrl = 'http://localhost:8080/new/';
-    static BaseUrl = 'http://localhost:8080/';
+    static BaseUrl = 'https://imedia24backend.herokuapp.com/';
          
     // Product
         static GetProductById='GetProductById/';
